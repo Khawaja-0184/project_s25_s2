@@ -1,0 +1,196 @@
+/* Common Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #1a6d5d;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #f39c12;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+/* Trip Planner Hero */
+.trip-planner-hero {
+    background: linear-gradient(rgba(26, 109, 93, 0.8), rgba(26, 109, 93, 0.8)), url('https://www.visitswatvalley.com/images/visit-lake-in-swat.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 150px 0 100px;
+    text-align: center;
+}
+
+.trip-planner-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.trip-planner-hero p {
+    font-size: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Travel Tips */
+.travel-tips {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.tip-card {
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.tip-icon {
+    width: 80px;
+    height: 80px;
+    background: #f0f7f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.tip-icon i {
+    font-size: 2rem;
+    color: #1a6d5d;
+}
+
+.tip-card h3 {
+    color: #1a6d5d;
+    margin-bottom: 15px;
+}
+
+.tip-card p {
+    color: #555;
+    margin-bottom: 0;
+}
+
+/* Resources Section */
+.resources {
+    padding: 80px 0;
+    background: #f0f7f5;
+}
+
+.resource-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.resource-icon {
+    width: 80px;
+    height: 80px;
+    background: #f0f7f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.resource-icon i {
+    font-size: 2rem;
+    color: #1a6d5d;
+}
+
+.resource-card h3 {
+    color: #1a6d5d;
+    margin-bottom: 15px;
+}
+
+.resource-card p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.btn-download {
+    background: #1a6d5d;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+    background: #155c4e;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* FAQ Section */
+.faq {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.accordion-item {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: none;
+}
+
+.accordion-button {
+    background: #f0f7f5;
+    font-weight: 600;
+    color: #1a6d5d;
+    padding: 20px;
+}
+
+.accordion-button:not(.collapsed) {
+    background: #1a6d5d;
+    color: #fff;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-body {
+    padding: 20px;
+    color: #555;
+    line-height: 1.6;
+}
