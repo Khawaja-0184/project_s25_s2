@@ -1,0 +1,55 @@
+name: wf-cd-develop
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  build-job-develop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      # Setup Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+        
+      # Linting steps (REQUIRED by project)
+      - name: Lint HTML
+        run: npx htmlhint "**/*.html"
+        
+      - name: Lint CSS
+        run: npx stylelint "**/*.css"
+        
+      # Build step
+      - name: Build Static Website
+        run: npx parcel build "./src/index.html" --dist-dir "./dist" --public-url "./"
+        
+      # Upload artifact
+      - name: Upload Build Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./dist"
+          name: "build-artifact-develop"
+          
+  deploy-job-develop:
+    needs: "build-job-develop"
+    runs-on: ubuntu-latest
+    environment:
+      name: "develop-env"  # Must match environment name in GitHub
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: "build-artifact-develop"
+          # CORRECTED token reference:
+          token: ${{ secrets.GITHUB_TOKEN }}

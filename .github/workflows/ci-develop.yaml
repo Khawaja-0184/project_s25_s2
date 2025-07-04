@@ -1,0 +1,35 @@
+name: wf-ci-develop
+on:
+  pull_request:
+    branches:
+      - develop
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  linting-develop-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      # Add Node.js setup
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      # Install dependencies from package.json
+      - name: Install dependencies
+        run: npm install
+        
+      # Now run linters
+      - name: Lint HTML Files With HTMLHint
+        run: npx htmlhint "**/*.html"
+        
+      - name: Lint CSS Files With Stylelint
+        run: npx stylelint "**/*.css"
+        
+      - name: Test Building With Parcel
+        run: npx parcel build "./src/index.html" --dist-dir "./dist" --public-url "./"
